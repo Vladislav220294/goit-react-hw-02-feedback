@@ -22,8 +22,11 @@ class App extends Component {
       0,
     );
   };
+
   countPositiveFeedbackPercentage = () => {
-    return parseInt((this.state.good / this.countTotalFeedback()) * 100);
+    return this.countTotalFeedback()
+      ? parseInt((this.state.good / this.countTotalFeedback()) * 100)
+      : 0;
   };
   render() {
     return (
