@@ -12,11 +12,10 @@ class App extends Component {
     bad: 0,
   };
 
-  inceaseGood = () =>
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  inceaseNeutral = () =>
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  inceaseBad = () => this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  onLeaveFeedback = option => {
+    this.setState(prevState => ({ [option]: prevState[option] + 1 }));
+  };
+
   countTotalFeedback = () => {
     return Object.values(this.state).reduce(
       (total, item) => (total += item),
@@ -31,10 +30,8 @@ class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOption
-            options={this.state}
-            goodFeedback={this.inceaseGood}
-            badFeedback={this.inceaseBad}
-            neutralFeedback={this.inceaseNeutral}
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.onLeaveFeedback}
           />
 
           <Statistics
