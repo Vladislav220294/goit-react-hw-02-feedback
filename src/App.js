@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
 import Section from './components/Section/Section.jsx';
 import FeedbackOption from './components/FeedbackOptions/FeedbackOptions.jsx';
 import Statistics from './components/Statistics/Statistics.jsx';
